@@ -39,7 +39,7 @@ res = DESeq2::results(dds) %>%
 plot_volcano(
     # dataframe or file of DEGs
     degs           = res,
-    
+  
     plot_version   = "v1",
     plot_dirname   = "vignettes/output/ProjectN/ConditionA_v_ConditionB/volcano",
     plot_filebase  = "ProjectN__",
@@ -86,5 +86,6 @@ plot_volcano(
     plot_height    = 4,
     plot_width     = 4
 )
-
 ```
+
+<p align="center"><img src="vignettes/output/ProjectN/ConditionA_v_ConditionB/volcano/ProjectN__ConditionB_v_ConditionA__v1.png" alt="example volcano from vignette" width="400"></p>
