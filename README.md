@@ -49,9 +49,12 @@ plot_volcano(
     log2FC_col     = "log2FoldChange",
     pval_col       = "padj",
 
+    # number of points to label
+    n_labels       = 10,
+
     # conditions to be added to the plot filename
-    name_down = "ConditionA",
-    name_up   = "ConditionB",
+    name_down      = "ConditionA",
+    name_up        = "ConditionB",
 
     # annotation labels at the top of the plot
     anno_down      = paste0("Gene expression\nhigher in\n", "Condition A"),
