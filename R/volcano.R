@@ -219,7 +219,7 @@ plot_volcano = function(
     log_msg(
         vol_data %>%
             filter(!!sym(pval_col) < padj_thresh) %>%
-            slice_min(!!sym(log2FC_col), n = 10),
+            slice_min(!!sym(log2FC_col), n = n_labels),
         level = 'MSG'
     )
     
@@ -227,7 +227,7 @@ plot_volcano = function(
     log_msg(
         vol_data %>%
             filter(!!sym(pval_col) < padj_thresh) %>%
-            slice_max(!!sym(log2FC_col), n = 10),
+            slice_max(!!sym(log2FC_col), n = n_labels),
         level = 'MSG'
     )
   
@@ -248,7 +248,7 @@ plot_volcano = function(
             data = vol_data %>%
                 filter(!!sym(pval_col)   < padj_thresh) %>%
                 filter(!!sym(log2FC_col) < -log2fc_thresh) %>%
-                slice_min(!!sym(log2FC_col), n = 10),
+                slice_min(!!sym(log2FC_col), n = n_labels),
             size = 2,
             shape = 21,
             colour = "black",
@@ -261,7 +261,7 @@ plot_volcano = function(
             data = vol_data %>%
                 filter(!!sym(pval_col)   < padj_thresh) %>%
                 filter(!!sym(log2FC_col) > log2fc_thresh) %>%
-                slice_max(!!sym(log2FC_col), n = 10),
+                slice_max(!!sym(log2FC_col), n = n_labels),
             size = 2,
             shape = 21,
             colour = "black",
@@ -338,7 +338,7 @@ plot_volcano = function(
         ggrepel::geom_label_repel(
             data = vol_data %>%
                 filter(!!sym(pval_col) < padj_thresh) %>%
-                slice_min(!!sym(log2FC_col), n = 10),
+                slice_min(!!sym(log2FC_col), n = n_labels),
                 aes(label = !!sym(label_col)),
             min.segment.length = 0,
             # arrow = arrow(length = unit(0.01, "npc")),
@@ -353,7 +353,7 @@ plot_volcano = function(
         ggrepel::geom_label_repel(
             data = vol_data %>%
                 filter(!!sym(pval_col) < padj_thresh) %>%
-                slice_max(!!sym(log2FC_col), n = 10),
+                slice_max(!!sym(log2FC_col), n = n_labels),
                 aes(label = !!sym(label_col)),
             min.segment.length = 0,
             # arrow = arrow(length = unit(0.01, "npc")),
