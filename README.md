@@ -14,7 +14,6 @@ remotes::install_github("beigelk/volcano-fig")
 # -- Packages --------------------------------------------
 ## utility
 library(tidyverse)
-library()
 
 ## example data
 library(DESeq2)
