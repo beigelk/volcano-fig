@@ -29,16 +29,20 @@
 #'   \code{plot_version}, \code{name_down}, \code{name_up},
 #'   and \code{plot_filebase}) to construct the output PDF/PNG filenames, in the
 #'   form \code{<plot_dirname>/<plot_filebase>__<name_up>_v_<name_down>__volcano_<plot_version>.pdf} / \code{.png}.
+#' @param plot_filebase Character. String used as the base/root for the 
+#'   filename of the plot, e.g. a project name or other informative prefix for the filename.
 #' @param plot_title Character. Title displayed on the plot and used in the
 #'   log messages announcing the top gene tables.
-#' @param log2FC_col Character. Name of the column in \code{degs}
-#'   containing log2 fold change values.
 #' @param label_col Character. Name of the column in \code{degs}
 #'   used to label the top genes (e.g. gene symbol).
+#' @param log2FC_col Character. Name of the column in \code{degs}
+#'   containing log2 fold change values.
 #' @param pval_col Character. Name of the column in \code{degs}
 #'   containing the p-value or adjusted p-value used for significance
 #'   filtering (against \code{padj_thresh}) and for the y-axis
 #'   (\code{-log10(pval_col)}).
+#' @param n_labels Character. Number of items to label from \code{degs}
+#'   in each direction, used to label the top genes (e.g. gene symbol).
 #' @param name_down Character. Value used to label/color genes with a
 #'   significant, negative log2 fold change (i.e. the \code{color} grouping
 #'   value, matched in \code{scale_color_manual}). Compare with
@@ -123,11 +127,12 @@
 #'   plot_dirname   = "output/project",
 #'   plot_filebase  = "volcano",
 #'   plot_title     = "Condition A vs B",
-#'   log2FC_col     = "log2FoldChange",
 #'   label_col      = "gene",
+#'   log2FC_col     = "log2FoldChange",
 #'   pval_col       = "padj",
-#'   name_down = "Condition A",
-#'   name_up   = "Condition B",
+#'   n_labels       = 10,
+#'   name_down      = "Condition A",
+#'   name_up        = "Condition B",
 #'   anno_down      = "Condition A",
 #'   anno_up        = "Condition B",
 #'   color_down     = "darkgreen",
@@ -154,9 +159,10 @@ plot_volcano = function(
     plot_dirname,
     plot_filebase,
     plot_title,
-    log2FC_col,
     label_col,
+    log2FC_col,
     pval_col,
+    n_labels,
     name_down,
     name_up,
     anno_down,
